@@ -1,0 +1,4 @@
+<p>pipe-example works!</p>
+@for (user of userData; track user.user_id) {
+    <p> {{user.name | titlecase}} {{user.age | currency:"INR"}} </p>
+}

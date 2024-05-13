@@ -1,0 +1,43 @@
+<p>control-flow-example works!</p>
+
+----------------------For----------------------<br>
+@for (user of userList; track user.user_id) {
+    @if (user.department == "Software") {
+        <input type="text" [value]="user.name">
+    }
+    @else if (user.department == "Dot Net") {
+        <textarea [(ngModel)]="user.name"></textarea>
+    }
+    @else {
+        <div>{{user.name}}</div>
+    }
+}
+
+----------------------Switch----------------------<br>
+
+@for (user of userList; track user.user_id) {
+    @switch (user.department) {
+        @case ("Software") {
+            <input type="text" [value]="user.name">
+        }
+        @case ("Dot Net") {
+            <textarea [(ngModel)]="user.name"></textarea>
+        }
+        @default {
+            <div>{{user.name}}</div>
+        }
+    }
+}
+
+----------------------Transform----------------------<br>
+
+<app-transform-example [userData]="userList"></app-transform-example>
+
+<app-transform-example 
+*ngFor="let user of userList" 
+[userName]="user.name">
+</app-transform-example>
+
+----------------------Pipe----------------------<br>
+
+<app-pipe-example [userData]="userList"></app-pipe-example>
